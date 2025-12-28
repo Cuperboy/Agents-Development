@@ -1,0 +1,20 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: tg_chat_analyzer_db
+    environment:
+      POSTGRES_USER: chatgpt
+      POSTGRES_PASSWORD: chatgpt
+      POSTGRES_DB: tgchat
+    ports:
+      - "5432:5432"
+    volumes:
+      - tgchat_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chatgpt -d tgchat"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  tgchat_pgdata:

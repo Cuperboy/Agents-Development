@@ -1,0 +1,895 @@
+
+---
+
+## `app/__init__.py`
+```python
+from __future__ import annotations
+2025-12-25 19:16:00 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:16:01 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 19:16:01 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:16:01 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 19:16:01 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:17:57 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:18:00 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:19:55 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:19:55 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:19:55 | INFO | app.ingestion | Chats synced. New: 297, total dialogs seen: 297
+2025-12-25 19:22:51 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:22:51 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:22:57 | INFO | app.telegram_client | Fetched 576 messages for peer_id=3058771830
+2025-12-25 19:22:57 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:22:57 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:23:21 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:23:21 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:23:22 | INFO | app.telegram_client | Fetched 0 messages for peer_id=4983263200
+2025-12-25 19:23:22 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:23:22 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:23:22 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=0
+2025-12-25 19:24:05 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:24:05 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:24:06 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:24:54 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:24:55 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:24:55 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:27:45 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:27:45 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:27:45 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:28:38 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:28:39 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:28:39 | INFO | __main__ | Не авторизован. Отправляю код на телефон +79856957152
+2025-12-25 19:28:50 | INFO | __main__ | Успешно. Авторизован как: Cuperboy (id=634082078)
+2025-12-25 19:28:50 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:28:50 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:29:09 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:29:10 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:29:10 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:31:49 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:31:49 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 19:31:49 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 19:31:50 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:31:50 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:31:52 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:32:18 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:32:18 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:32:20 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:32:20 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:32:20 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 19:33:10 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:33:10 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:33:11 | INFO | app.telegram_client | Fetched 0 messages for peer_id=4983263200
+2025-12-25 19:33:11 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:33:11 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:33:11 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=0
+2025-12-25 19:33:20 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:33:30 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-25 19:33:31 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:33:35 | INFO | app.telegram_client | Fetched 0 messages for peer_id=1691805816
+2025-12-25 19:33:35 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:33:35 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:33:35 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=0
+2025-12-25 19:40:42 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:40:43 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:40:43 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 19:40:43 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 19:40:43 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:40:51 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:40:51 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:40:53 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:40:53 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:40:53 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 19:41:24 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:41:24 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:41:25 | INFO | app.telegram_client | Fetched 17 messages for peer_id=3048617897
+2025-12-25 19:41:25 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:41:25 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:42:19 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:42:19 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:42:22 | INFO | app.telegram_client | Fetched 134 messages for peer_id=4680963792
+2025-12-25 19:42:22 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:42:22 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:49:19 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:49:19 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 19:49:19 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 19:49:19 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-25 19:49:20 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-25 19:49:58 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:49:58 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:50:02 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:50:02 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:50:03 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 19:50:45 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:50:45 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:50:50 | INFO | app.telegram_client | Fetched 17 messages for peer_id=3048617897
+2025-12-25 19:50:50 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:50:50 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:50:50 | ERROR | app.ui | Ошибка при сборе сообщений
+Traceback (most recent call last):
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1815, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 1510, in _init_compiled
+    flattened_processors[key](compiled_params[key])
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/sqltypes.py", line 2714, in process
+    return json_serializer(value)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type datetime is not JSON serializable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/tg_chat_analyzer/app/ui.py", line 59, in _ingest_ui
+    res = asyncio.run(ingest_period(db, chat_ids, df, dt))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/app/ingestion.py", line 32, in ingest_period
+    ins, sk = insert_messages(db, c.id, msgs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/app/repo.py", line 76, in insert_messages
+    db.commit()
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1143, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1821, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1815, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 1510, in _init_compiled
+    flattened_processors[key](compiled_params[key])
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/sqltypes.py", line 2714, in process
+    return json_serializer(value)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+sqlalchemy.exc.StatementError: (builtins.TypeError) Object of type datetime is not JSON serializable
+[SQL: INSERT INTO messages (chat_id, tg_msg_id, dt, sender_id, sender_name, text, reply_to_tg_msg_id, raw) SELECT p0::INTEGER, p1::INTEGER, p2::TIMESTAMP WITH TIME ZONE, p3::BIGINT, p4::VARCHAR, p5::TEXT, p6::INTEGER, p7::JSON FROM (VALUES (%(chat_id)s, %(tg_msg_id)s, %(dt)s, %(sender_id)s, %(sender_name)s, %(text)s, %(reply_to_tg_msg_id)s, %(raw)s)) AS imp_sen(p0, p1, p2, p3, p4, p5, p6, p7, sen_counter) ORDER BY sen_counter RETURNING messages.id, messages.id AS id__1]
+[parameters: [{'text': 'Следующие студенты получили ЗАЧЕТ:\n1. Огородников Даниил\n2.Якушев Марк\n3.Загс Роберт\n4.Певцов Артём\n5.Краснова Светлана\n6.Глазков Дани ... (2037 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': '', 'sender_id': 811526699, 'sender_name': '@uliana_jane', 'chat_id': 62, 'dt': datetime.datetime(2025, 12, 7, 8, 59, 26, tzinfo=datetime.tim ... (351 characters truncated) ... 'post': False, 'legacy': False, 'from_id': {'_': 'PeerUser', 'user_id': 811526699}, 'reply_to': None, 'ttl_period': None}, 'reply_to_tg_msg_id': None}, {'text': 'Следующие студенты получили ЗАЧЕТ:\n1. Огородников Даниил\n2.Якушев Марк\n3.Загс Роберт\n4.Певцов Артём\n5.Краснова Светлана\n6.Глазков Дани ... (3540 characters truncated) ... lse}]}, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'Уважаемые студенты! \nНапоминаю, что для получения зачета автоматом нужно не только сдать аннотации+газеты+реферат, но И ЗАКРЫТЬ ВСЕ ПРОПУСК ... (1474 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': '22.12 понедельник у нас ЗАЧЕТ\nНа зачёте:\n1.долги\n2. Контрольная УСТНО + 1 аспект письменно', 'sender_id': 6046990820, 'sender_name': 'Кат ... (1208 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'Из чего состоит контрольная:\n1.научная статья- к ней письменно аннотация+ реферирование (пересказ устно)\n2. Газетная статья(устно)\n3. 6 п ... (1455 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': '', 'sender_id': 6046990820, 'sender_name': 'Катерина Кичина', 'chat_id': 62, 'dt': datetime.datetime(2025, 12, 15, 8, 3, 31, tzinfo=datetime ... (599 characters truncated) ... reply_from': None, 'reply_media': None, 'reply_to_top_id': None, 'quote_text': None, 'quote_entities': [], 'quote_offset': None}, 'ttl_period': None}}, {'text': '', 'sender_id': 6046990820, 'sender_name': 'Катерина Кичина', 'chat_id': 62, 'dt': datetime.datetime(2025, 12, 15, 8, 3, 35, tzinfo=datetime ... (599 characters truncated) ... reply_from': None, 'reply_media': None, 'reply_to_top_id': None, 'quote_text': None, 'quote_entities': [], 'quote_offset': None}, 'ttl_period': None}}, {'text': '', 'sender_id': 6046990820, 'sender_name': 'Катерина Кичина', 'chat_id': 62, 'dt': datetime.datetime(2025, 12, 15, 8, 3, 39, tzinfo=datetime ... (599 characters truncated) ... reply_from': None, 'reply_media': None, 'reply_to_top_id': None, 'quote_text': None, 'quote_entities': [], 'quote_offset': None}, 'ttl_period': None}}, {'text': 'Следующие студенты получили ЗАЧЕТ:\n1. Огородников Даниил\n2.Якушев Марк\n3.Загс Роберт\n4.Певцов Артём\n5.Краснова Светлана\n6.Глазков Дани ... (2931 characters truncated) ... ': []}, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'Здравствуйте! \nв понедельник 22 декабря с 9:00 до 12:00 состоится ЗАЧЕТ. аудитория 790.', 'sender_id': 6046990820, 'sender_name': 'Катерина ... (1146 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'Напоминаю,на зачете вы сдаете все долги+ СЕМЕСТРОВАЯ КОНТРОЛЬНАЯ (зачетная контрольная)', 'sender_id': 6046990820, 'sender_name': 'Катерина  ... (1144 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': '26.12 комиссия, там можно сдать ТОЛЬКО 2 ДОЛГА!!!! \nследующие комиссии в феврале. Там тоже ТОЛЬКО 2 ДОЛГА за день.', 'sender_id': 604699082 ... (1364 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'также напоминаю, что грамматику вы делаете в любой письменной форме и отправляете мне в личные сообщения! я закрываю ваши пропуски', 'sender ... (1230 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'Катерина, Добрый день, вас ещё можно найти на факультете сегодня?', 'sender_id': 1005335305, 'sender_name': '@Hilopio', 'chat_id': 62, 'dt': ... (1175 characters truncated) ... : None, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'здравствуйте! аудитория 740', 'sender_id': 6046990820, 'sender_name': 'Катерина Кичина', 'chat_id': 62, 'dt': datetime.datetime(2025, 12, 22 ... (1584 characters truncated) ... lse}]}, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}, {'text': 'Напоминаю, что первая комиссия у нас 26.12, время 10:00. \nЯ буду с 9:00 на факультете, можно прийти раньше', 'sender_id': 6046990820, 'send ... (1747 characters truncated) ... lse}]}, 'restriction_reason': [], 'ttl_period': None, 'quick_reply_shortcut_id': None, 'effect': None, 'factcheck': None}, 'reply_to_tg_msg_id': None}]]
+2025-12-25 19:54:13 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 19:54:14 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 19:54:14 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 19:54:28 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:54:28 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:54:30 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:54:30 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:54:31 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 19:54:44 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:54:44 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:54:45 | INFO | app.telegram_client | Fetched 17 messages for peer_id=3048617897
+2025-12-25 19:54:45 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:54:45 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:54:45 | INFO | app.ingestion | Ingest done. Inserted=17 skipped=0
+2025-12-25 19:55:04 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 19:55:04 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:55:05 | INFO | app.telegram_client | Fetched 17 messages for peer_id=3048617897
+2025-12-25 19:55:05 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 19:55:05 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 19:55:05 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=17
+2025-12-25 19:55:18 | INFO | app.build_embeddings | Messages missing embeddings: 13
+2025-12-25 19:55:18 | INFO | app.embeddings | Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-25 19:55:18 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda
+2025-12-25 19:55:18 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-25 19:56:06 | INFO | app.build_embeddings | Embeddings progress: 13/13
+2025-12-25 19:56:38 | INFO | app.summarization | Summarization loaded 17 messages
+2025-12-25 19:56:38 | INFO | app.summarization | Chunked into 1 chunks
+2025-12-25 19:56:40 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 19:56:40 | INFO | app.summarization | Map chunk 1/1 done
+2025-12-25 19:56:41 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 19:56:44 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:13:57 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 20:13:57 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 20:13:57 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 20:14:09 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:14:09 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:14:15 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:14:15 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:14:15 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 20:14:35 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:14:35 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:15:25 | INFO | app.telegram_client | Fetched 4585 messages for peer_id=1700653489
+2025-12-25 20:15:25 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:15:25 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:15:27 | INFO | app.ingestion | Ingest done. Inserted=4585 skipped=0
+2025-12-25 20:15:43 | INFO | app.build_embeddings | Messages missing embeddings: 4371
+2025-12-25 20:15:43 | INFO | app.embeddings | Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-25 20:15:43 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda
+2025-12-25 20:15:43 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-25 20:16:11 | INFO | app.build_embeddings | Embeddings progress: 128/4371
+2025-12-25 20:16:13 | INFO | app.build_embeddings | Embeddings progress: 256/4371
+2025-12-25 20:16:14 | INFO | app.build_embeddings | Embeddings progress: 384/4371
+2025-12-25 20:16:16 | INFO | app.build_embeddings | Embeddings progress: 512/4371
+2025-12-25 20:16:17 | INFO | app.build_embeddings | Embeddings progress: 640/4371
+2025-12-25 20:16:19 | INFO | app.build_embeddings | Embeddings progress: 768/4371
+2025-12-25 20:16:20 | INFO | app.build_embeddings | Embeddings progress: 896/4371
+2025-12-25 20:16:22 | INFO | app.build_embeddings | Embeddings progress: 1024/4371
+2025-12-25 20:16:24 | INFO | app.build_embeddings | Embeddings progress: 1152/4371
+2025-12-25 20:16:25 | INFO | app.build_embeddings | Embeddings progress: 1280/4371
+2025-12-25 20:16:27 | INFO | app.build_embeddings | Embeddings progress: 1408/4371
+2025-12-25 20:16:28 | INFO | app.build_embeddings | Embeddings progress: 1536/4371
+2025-12-25 20:16:30 | INFO | app.build_embeddings | Embeddings progress: 1664/4371
+2025-12-25 20:16:32 | INFO | app.build_embeddings | Embeddings progress: 1792/4371
+2025-12-25 20:16:34 | INFO | app.build_embeddings | Embeddings progress: 1920/4371
+2025-12-25 20:16:36 | INFO | app.build_embeddings | Embeddings progress: 2048/4371
+2025-12-25 20:16:38 | INFO | app.build_embeddings | Embeddings progress: 2176/4371
+2025-12-25 20:16:40 | INFO | app.build_embeddings | Embeddings progress: 2304/4371
+2025-12-25 20:16:41 | INFO | app.build_embeddings | Embeddings progress: 2432/4371
+2025-12-25 20:16:43 | INFO | app.build_embeddings | Embeddings progress: 2560/4371
+2025-12-25 20:16:45 | INFO | app.build_embeddings | Embeddings progress: 2688/4371
+2025-12-25 20:16:46 | INFO | app.build_embeddings | Embeddings progress: 2816/4371
+2025-12-25 20:16:48 | INFO | app.build_embeddings | Embeddings progress: 2944/4371
+2025-12-25 20:16:49 | INFO | app.build_embeddings | Embeddings progress: 3072/4371
+2025-12-25 20:16:51 | INFO | app.build_embeddings | Embeddings progress: 3200/4371
+2025-12-25 20:16:52 | INFO | app.build_embeddings | Embeddings progress: 3328/4371
+2025-12-25 20:16:53 | INFO | app.build_embeddings | Embeddings progress: 3456/4371
+2025-12-25 20:16:55 | INFO | app.build_embeddings | Embeddings progress: 3584/4371
+2025-12-25 20:16:56 | INFO | app.build_embeddings | Embeddings progress: 3712/4371
+2025-12-25 20:16:58 | INFO | app.build_embeddings | Embeddings progress: 3840/4371
+2025-12-25 20:16:59 | INFO | app.build_embeddings | Embeddings progress: 3968/4371
+2025-12-25 20:17:01 | INFO | app.build_embeddings | Embeddings progress: 4096/4371
+2025-12-25 20:17:02 | INFO | app.build_embeddings | Embeddings progress: 4224/4371
+2025-12-25 20:17:04 | INFO | app.build_embeddings | Embeddings progress: 4352/4371
+2025-12-25 20:17:04 | INFO | app.build_embeddings | Embeddings progress: 4371/4371
+2025-12-25 20:17:14 | INFO | app.summarization | Summarization loaded 4585 messages
+2025-12-25 20:17:14 | INFO | app.summarization | Chunked into 77 chunks
+2025-12-25 20:17:20 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:17:27 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:18:14 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:18:58 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:24:10 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:24:10 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:24:12 | INFO | app.telegram_client | Fetched 115 messages for peer_id=1153541769
+2025-12-25 20:24:12 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:24:12 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:24:12 | INFO | app.ingestion | Ingest done. Inserted=115 skipped=0
+2025-12-25 20:24:27 | INFO | app.build_embeddings | Messages missing embeddings: 107
+2025-12-25 20:24:27 | INFO | app.build_embeddings | Embeddings progress: 107/107
+2025-12-25 20:24:35 | INFO | app.summarization | Summarization loaded 115 messages
+2025-12-25 20:24:35 | INFO | app.summarization | Chunked into 3 chunks
+2025-12-25 20:24:38 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:24:40 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:24:40 | INFO | app.summarization | Map chunk 1/3 done
+2025-12-25 20:24:43 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:24:43 | INFO | app.summarization | Map chunk 2/3 done
+2025-12-25 20:24:44 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:24:44 | INFO | app.summarization | Map chunk 3/3 done
+2025-12-25 20:24:46 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:24:47 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:25:51 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:26:27 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:27:30 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:28:06 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:28:35 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:28:46 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:29:50 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:30:13 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:36:01 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 20:36:01 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 20:36:01 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 20:36:12 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:36:12 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:36:14 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:36:14 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:36:14 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 20:36:37 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:36:37 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:36:47 | INFO | app.telegram_client | Fetched 921 messages for peer_id=1700653489
+2025-12-25 20:36:47 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:36:47 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:36:48 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=921
+2025-12-25 20:37:06 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:11 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:11 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:12 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:12 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:12 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:12 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:39 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:40 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:47 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:37:47 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:37:52 | INFO | app.telegram_client | Fetched 3 messages for peer_id=3048617897
+2025-12-25 20:37:52 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:37:52 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:37:52 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=3
+2025-12-25 20:37:58 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:37:58 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:38:52 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 20:38:53 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 20:38:53 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 20:39:00 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:39:00 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:39:02 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:39:02 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:39:02 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 20:39:15 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:39:15 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:39:16 | INFO | app.telegram_client | Fetched 17 messages for peer_id=3048617897
+2025-12-25 20:39:16 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:39:16 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:39:16 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=17
+2025-12-25 20:39:23 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:39:25 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:42:20 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:42:21 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:45:05 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 20:45:06 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 20:45:06 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 20:45:12 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:45:12 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:45:14 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:45:14 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:45:14 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 20:45:22 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:45:22 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:45:23 | INFO | app.telegram_client | Fetched 17 messages for peer_id=3048617897
+2025-12-25 20:45:23 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:45:23 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:45:23 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=17
+2025-12-25 20:45:29 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:46:51 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-25 20:46:52 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-25 20:46:52 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-25 20:47:02 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:47:02 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:47:04 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:47:04 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:47:04 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-25 20:47:10 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:47:10 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:47:11 | INFO | app.telegram_client | Fetched 17 messages for peer_id=3048617897
+2025-12-25 20:47:11 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:47:11 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:47:11 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=17
+2025-12-25 20:47:17 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-25 20:50:28 | INFO | app.summarization | Summarization loaded 17 messages
+2025-12-25 20:50:28 | INFO | app.summarization | Chunked into 1 chunks
+2025-12-25 20:50:31 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:50:31 | INFO | app.summarization | Map chunk 1/1 done
+2025-12-25 20:50:32 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:50:37 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:51:09 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-25 20:51:09 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:51:13 | INFO | app.telegram_client | Fetched 8 messages for peer_id=474420619
+2025-12-25 20:51:13 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-25 20:51:13 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-25 20:51:13 | INFO | app.ingestion | Ingest done. Inserted=8 skipped=0
+2025-12-25 20:51:25 | INFO | app.build_embeddings | Messages missing embeddings: 8
+2025-12-25 20:51:25 | INFO | app.embeddings | Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-25 20:51:25 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda
+2025-12-25 20:51:25 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-25 20:51:33 | INFO | app.build_embeddings | Embeddings progress: 8/8
+2025-12-25 20:51:49 | INFO | app.summarization | Summarization loaded 8 messages
+2025-12-25 20:51:49 | INFO | app.summarization | Chunked into 1 chunks
+2025-12-25 20:51:52 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:51:52 | INFO | app.summarization | Map chunk 1/1 done
+2025-12-25 20:51:55 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:51:58 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:52:46 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:53:13 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:53:26 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-25 20:53:43 | INFO | openai._base_client | Retrying request to /chat/completions in 0.885193 seconds
+2025-12-25 20:53:48 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 15:40:07 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 15:40:09 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 15:40:10 | INFO | __main__ | Не авторизован. Отправляю код на телефон +79856957152
+2025-12-26 15:40:19 | INFO | __main__ | Успешно. Авторизован как: Cuperboy (id=634082078)
+2025-12-26 15:40:19 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 15:40:19 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 15:43:40 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 15:43:40 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 15:43:40 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 15:43:40 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 15:43:41 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-26 15:43:43 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 15:43:57 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 15:43:57 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 15:43:59 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 15:43:59 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 15:43:59 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 15:44:30 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 15:44:30 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 15:44:31 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-26 15:44:31 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 15:44:31 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 15:44:31 | INFO | app.ingestion | Ingest done. Inserted=81 skipped=0
+2025-12-26 15:44:42 | INFO | app.build_embeddings | Messages missing embeddings: 80
+2025-12-26 15:44:42 | INFO | app.embeddings | Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-26 15:44:42 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda
+2025-12-26 15:44:42 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-26 15:44:47 | INFO | app.build_embeddings | Embeddings progress: 80/80
+2025-12-26 15:44:57 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 15:44:57 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 15:45:00 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 15:45:02 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 15:45:02 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 15:45:03 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 15:45:03 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 15:45:05 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 15:45:06 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 15:46:22 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:08:23 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:08:23 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 16:08:23 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:08:23 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:08:24 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-26 16:08:32 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:08:32 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:08:34 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:08:34 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:08:34 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 16:08:55 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:08:55 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:08:56 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-26 16:08:56 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:08:56 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:08:56 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-26 16:09:11 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-26 16:10:07 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:10:07 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:10:07 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:10:08 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 16:10:08 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-26 16:10:32 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:10:32 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 16:10:32 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:10:32 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:10:33 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-26 16:10:56 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:10:56 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:10:58 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:10:58 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:10:58 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 16:11:06 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:11:06 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:11:07 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-26 16:11:07 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:11:07 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:11:07 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-26 16:11:14 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-26 16:11:24 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:11:24 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:11:27 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:27 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:11:28 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:28 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:11:31 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:39 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:41 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:11:41 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:11:47 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:49 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:49 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:11:50 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:50 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:11:53 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:11:55 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:12:22 | INFO | app.embeddings | Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-26 16:12:22 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda
+2025-12-26 16:12:22 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-26 16:12:40 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:13:36 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:19:24 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:19:25 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 16:19:25 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:19:25 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:19:25 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-26 16:19:35 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:19:46 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-26 16:19:47 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:19:48 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:19:48 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:19:48 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 16:19:58 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:19:58 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:19:59 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-26 16:19:59 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:19:59 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:19:59 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-26 16:20:06 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-26 16:20:16 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:20:16 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:20:23 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:20:23 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:20:34 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:20:34 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:20:35 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:20:36 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:21:58 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:21:59 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 16:21:59 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:21:59 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:21:59 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-26 16:22:06 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:22:06 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:22:07 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:22:07 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:22:08 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 16:22:15 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:22:25 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-26 16:22:26 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:22:27 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-26 16:22:27 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:22:27 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:22:27 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-26 16:22:39 | ERROR | app.ui | Ошибка при построении эмбеддингов
+Traceback (most recent call last):
+  File "/home/user/tg_chat_analyzer/app/ui.py", line 79, in _embed_ui
+    res = build_embeddings_for_period(db, chat_ids, df, dt, batch_size=128)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/app/build_embeddings.py", line 15, in build_embeddings_for_period
+    missing = messages_missing_embeddings(db, chat_ids, date_from, date_to, limit=50_000)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/app/repo.py", line 107, in messages_missing_embeddings
+    Message.chat_id.in_(chat_ids),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/operators.py", line 925, in in_
+    return self.operate(in_op, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/attributes.py", line 453, in operate
+    return op(self.comparator, *other, **kwargs)  # type: ignore[no-any-return]  # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/operators.py", line 2102, in in_op
+    return a.in_(b)
+           ^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/operators.py", line 925, in in_
+    return self.operate(in_op, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/orm/properties.py", line 479, in operate
+    return op(self.__clause_element__(), *other, **kwargs)  # type: ignore[no-any-return]  # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/operators.py", line 2102, in in_op
+    return a.in_(b)
+           ^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/operators.py", line 925, in in_
+    return self.operate(in_op, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 1513, in operate
+    return op(self.comparator, *other, **kwargs)  # type: ignore[no-any-return]  # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/operators.py", line 2102, in in_op
+    return a.in_(b)
+           ^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/operators.py", line 925, in in_
+    return self.operate(in_op, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/type_api.py", line 194, in operate
+    return op_fn(self.expr, op, *other, **addtl_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/default_comparator.py", line 219, in _in_impl
+    seq_or_selectable = coercions.expect(
+                        ^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/coercions.py", line 396, in expect
+    resolved = impl._literal_coercion(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/coercions.py", line 880, in _literal_coercion
+    self._raise_for_expected(element, **kw)
+  File "/home/user/tg_chat_analyzer/.venv/lib/python3.12/site-packages/sqlalchemy/sql/coercions.py", line 519, in _raise_for_expected
+    raise exc.ArgumentError(msg, code=code) from err
+sqlalchemy.exc.ArgumentError: IN expression list, SELECT construct, or bound parameter object expected, got None.
+2025-12-26 16:22:44 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-26 16:22:51 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:22:51 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:22:58 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:22:58 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:22:59 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:22:59 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:23:02 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:23:21 | INFO | openai._base_client | Retrying request to /chat/completions in 0.955703 seconds
+2025-12-26 16:23:24 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:23:26 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:23:26 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:23:41 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:23:43 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:23:43 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:23:44 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:23:44 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:23:47 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:23:50 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:23:52 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:23:52 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:24:00 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:00 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:24:11 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:11 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:24:14 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:25 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:26 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:24:26 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:24:44 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:46 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:46 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:24:47 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:47 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:24:54 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:24:57 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:25:03 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:25:03 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:25:05 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:25:05 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:25:05 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 16:25:12 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:25:21 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-26 16:25:32 | WARNING | telethon.network.mtprotosender | Attempt 2 at connecting failed: TimeoutError: 
+2025-12-26 16:25:43 | WARNING | telethon.network.mtprotosender | Attempt 3 at connecting failed: TimeoutError: 
+2025-12-26 16:25:53 | WARNING | telethon.network.mtprotosender | Attempt 4 at connecting failed: TimeoutError: 
+2025-12-26 16:26:32 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:26:33 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:26:33 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:26:36 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-26 16:26:39 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 16:26:40 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:26:50 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-26 16:27:00 | WARNING | telethon.network.mtprotosender | Attempt 2 at connecting failed: TimeoutError: 
+2025-12-26 16:27:11 | WARNING | telethon.network.mtprotosender | Attempt 3 at connecting failed: TimeoutError: 
+2025-12-26 16:27:21 | WARNING | telethon.network.mtprotosender | Attempt 4 at connecting failed: TimeoutError: 
+2025-12-26 16:27:32 | WARNING | telethon.network.mtprotosender | Attempt 5 at connecting failed: TimeoutError: 
+2025-12-26 16:27:43 | WARNING | telethon.network.mtprotosender | Attempt 6 at connecting failed: TimeoutError: 
+2025-12-26 16:28:52 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:28:53 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:28:53 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:29:53 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:30:02 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-26 16:30:05 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:30:05 | INFO | __main__ | Не авторизован. Отправляю код на телефон +79856957152
+2025-12-26 16:30:16 | INFO | __main__ | Успешно. Авторизован как: Cuperboy (id=634082078)
+2025-12-26 16:30:16 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:30:16 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:30:32 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-26 16:30:33 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-26 16:30:33 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-26 16:30:45 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-26 16:31:13 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:31:23 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-26 16:31:33 | WARNING | telethon.network.mtprotosender | Attempt 2 at connecting failed: TimeoutError: 
+2025-12-26 16:31:44 | WARNING | telethon.network.mtprotosender | Attempt 3 at connecting failed: TimeoutError: 
+2025-12-26 16:31:55 | WARNING | telethon.network.mtprotosender | Attempt 4 at connecting failed: TimeoutError: 
+2025-12-26 16:31:56 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:31:58 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:31:58 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:31:58 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 16:32:32 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 16:32:32 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:32:33 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-26 16:32:33 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 16:32:33 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 16:32:33 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-26 16:32:38 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-26 16:32:48 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:32:48 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:32:51 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:32:54 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:32:55 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:32:55 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:32:58 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:33:10 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:33:20 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 16:33:20 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 16:33:39 | INFO | openai._base_client | Retrying request to /chat/completions in 0.855606 seconds
+2025-12-26 16:34:00 | INFO | openai._base_client | Retrying request to /chat/completions in 1.672025 seconds
+2025-12-26 16:34:09 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:34:29 | INFO | openai._base_client | Retrying request to /chat/completions in 0.826312 seconds
+2025-12-26 16:34:38 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:34:38 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 16:34:45 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:35:05 | INFO | openai._base_client | Retrying request to /chat/completions in 0.937099 seconds
+2025-12-26 16:35:08 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:35:08 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 16:35:11 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:35:13 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 16:36:14 | INFO | app.embeddings | Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-26 16:36:14 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda
+2025-12-26 16:36:14 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-26 16:36:34 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:39:49 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 17:39:49 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 17:39:51 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 17:39:51 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 17:39:51 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 297
+2025-12-26 17:40:06 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-26 17:40:06 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-26 17:40:08 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-26 17:40:08 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-26 17:40:08 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-26 17:40:08 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-26 17:40:15 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-26 17:40:24 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 17:40:24 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 17:40:27 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:40:29 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:40:30 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 17:40:31 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:40:31 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 17:40:33 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:40:36 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:40:37 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 17:40:37 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 17:40:39 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:40:42 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:40:57 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 17:40:57 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 17:40:59 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:41:02 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:41:02 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 17:41:03 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:41:03 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 17:41:10 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:41:13 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:41:57 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-26 17:41:57 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-26 17:42:00 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:42:00 | INFO | app.summarization | Map chunk 1/2 done
+2025-12-26 17:42:01 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:42:01 | INFO | app.summarization | Map chunk 2/2 done
+2025-12-26 17:42:02 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-26 17:42:03 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:06:33 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-28 17:06:43 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-28 17:06:54 | WARNING | telethon.network.mtprotosender | Attempt 2 at connecting failed: TimeoutError: 
+2025-12-28 17:06:57 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:06:57 | INFO | __main__ | Не авторизован. Отправляю код на телефон +79856957152
+2025-12-28 17:07:09 | INFO | __main__ | Успешно. Авторизован как: Cuperboy (id=634082078)
+2025-12-28 17:07:09 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-28 17:07:09 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:07:26 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-28 17:07:27 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-28 17:07:27 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-28 17:07:27 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-28 17:07:27 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-28 17:07:47 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-28 17:07:47 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:07:49 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-28 17:07:49 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:07:49 | INFO | app.ingestion | Chats synced. New: 2, total dialogs seen: 299
+2025-12-28 17:08:13 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-28 17:08:23 | WARNING | telethon.network.mtprotosender | Attempt 1 at connecting failed: TimeoutError: 
+2025-12-28 17:08:24 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:08:25 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-28 17:08:25 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-28 17:08:25 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:08:25 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-28 17:08:35 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-28 17:08:43 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:08:43 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:08:47 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:08:47 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:08:54 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:08:54 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:08:58 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:08:58 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:03 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:03 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:08 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:08 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:12 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:12 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:15 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:15 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:19 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:19 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:23 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:23 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:38 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:38 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:44 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:44 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:09:50 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:09:50 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:10:35 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:10:35 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:10:52 | INFO | app.summarization | Summarization loaded 17 messages
+2025-12-28 17:10:52 | INFO | app.summarization | Chunked into 1 chunks
+2025-12-28 17:11:50 | INFO | app.migrate | DB schema ensured (tables + vector extension).
+2025-12-28 17:11:51 | INFO | httpx | HTTP Request: GET http://localhost:7860/startup-events "HTTP/1.1 200 OK"
+2025-12-28 17:11:51 | INFO | httpx | HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-12-28 17:11:51 | INFO | httpx | HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-12-28 17:11:54 | INFO | httpx | HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-12-28 17:12:00 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-28 17:12:00 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:12:02 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-28 17:12:02 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:12:02 | INFO | app.ingestion | Chats synced. New: 0, total dialogs seen: 299
+2025-12-28 17:12:09 | INFO | telethon.network.mtprotosender | Connecting to 149.154.167.51:443/TcpFull...
+2025-12-28 17:12:09 | INFO | telethon.network.mtprotosender | Connection to 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:12:10 | INFO | app.telegram_client | Fetched 81 messages for peer_id=3000233015
+2025-12-28 17:12:10 | INFO | telethon.network.mtprotosender | Disconnecting from 149.154.167.51:443/TcpFull...
+2025-12-28 17:12:10 | INFO | telethon.network.mtprotosender | Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-12-28 17:12:10 | INFO | app.ingestion | Ingest done. Inserted=0 skipped=81
+2025-12-28 17:12:16 | INFO | app.build_embeddings | Messages missing embeddings: 0
+2025-12-28 17:12:23 | INFO | app.summarization | Summarization loaded 17 messages
+2025-12-28 17:12:23 | INFO | app.summarization | Chunked into 1 chunks
+2025-12-28 17:12:26 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:12:26 | INFO | app.summarization | Map chunk 1/1 done
+2025-12-28 17:12:27 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:12:29 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:11 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:22:11 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:22:13 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:16 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:17 | INFO | app.summarization | Summarization loaded 81 messages
+2025-12-28 17:22:17 | INFO | app.summarization | Chunked into 2 chunks
+2025-12-28 17:22:20 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:23 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:29 | INFO | app.summarization | Summarization loaded 17 messages
+2025-12-28 17:22:29 | INFO | app.summarization | Chunked into 1 chunks
+2025-12-28 17:22:32 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:32 | INFO | app.summarization | Map chunk 1/1 done
+2025-12-28 17:22:34 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:38 | INFO | app.summarization | Summarization loaded 17 messages
+2025-12-28 17:22:38 | INFO | app.summarization | Chunked into 1 chunks
+2025-12-28 17:22:40 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:40 | INFO | app.summarization | Map chunk 1/1 done
+2025-12-28 17:22:42 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 17:22:43 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-28 18:07:36 | INFO | app.embeddings | Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-28 18:07:36 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda
+2025-12-28 18:07:36 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-12-28 18:07:41 | WARNING | huggingface_hub.utils._http | '(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')), '(Request ID: edbf2e47-8da1-4eb0-b5eb-791b8f4c9261)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/modules.json
+2025-12-28 18:07:41 | WARNING | huggingface_hub.utils._http | Retrying in 1s [Retry 1/5].
+2025-12-28 18:07:49 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-12-28 18:07:52 | INFO | httpx | HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
