@@ -5,19 +5,12 @@
 Структура:
 
 ├── app/
-
 ├── logs/
-
 ├── data/
-
 ├── scripts/
-
 ├── .env
-
 ├── docker-compose.yml
-
 ├── requirements.txt
-
 └── README.md
 
 # Часть 0. Подготовка
